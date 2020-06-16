@@ -1,27 +1,25 @@
 #include <iostream>
-#include<algorithm>
-#include<numeric>
-#include<cmath>
-#include<numbers>
 using namespace std;
 
+void fast() {
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+//Euclid's Algorithm for GCD
 int64_t GCD(int64_t x, int64_t y)
 {
-    int64_t Great;
-    for (int64_t i = 1; i <= min(x, y); i++)
-    {
-        if (x % i == 0 && y % i == 0)
-        {
-            Great = i;
-        }
-    }
-    return Great;
+	if (y == 0)
+		return x;
+	else
+		return GCD(y, x % y);
 }
 
 
 int main()
 {
-    int64_t x, y;
-    cin >> x >> y;
-    cout << GCD(x, y) << endl;
+	fast();
+	int64_t x, y;
+	cin >> x >> y;
+	cout << GCD(x, y) << endl;
 }
